@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EduGenie — Learning Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <p class="eyebrow">AI LEARNING ASSISTANT</p>
+      <h1>EduGenie</h1>
+      <p>Ask questions, simplify concepts, generate quizzes, summarize passages, and build learning paths.</p>
+    </header>
+
+    <section class="card">
+      <label for="task">Choose a task</label>
+      <select id="task">
+        <option value="qa">Ask a Question</option>
+        <option value="explain">Explain a Concept</option>
+        <option value="quiz">Generate Quiz</option>
+        <option value="summarize">Summarize Text</option>
+        <option value="recommend">Learning Recommendations</option>
+      </select>
+
+      <label for="level">Learner level</label>
+      <select id="level">
+        <option value="beginner">Beginner</option>
+        <option value="school">School student</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
+      </select>
+
+      <label id="input-label" for="input-text">Your question</label>
+      <textarea id="input-text" rows="9" placeholder="Example: Which is the largest ocean?"></textarea>
+
+      <div id="quiz-options" class="hidden">
+        <label for="quiz-count">Number of questions</label>
+        <input id="quiz-count" type="number" min="1" max="20" value="5">
+      </div>
+
+      <div id="goal-box" class="hidden">
+        <label for="goal">Learning goal</label>
+        <input id="goal" type="text" placeholder="Example: prepare for an exam">
+      </div>
+
+      <button id="submit-btn">Generate Answer</button>
+      <p id="status" class="status"></p>
+    </section>
+
+    <section id="result" class="card result" aria-live="polite">
+      <h2>Result</h2>
+      <div id="result-content">Your result will appear here.</div>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', path='app.js') }}"></script>
+</body>
+</html>
